@@ -1,15 +1,19 @@
 void main() {
-  // 변수는 언제든 재할당 가능
-  var name = 'nico';
-  name = 'las';
-  String name2 = 'nico';
-  name2 = 'las';
-  // => 값이 변하는 것을 원하지 않을 경우가 대부분
+  // late
+  // var와 final 같은 키워드 앞에 붙여서 사용
+  // 초기 데이터 없이 변수를 선언할 수 있게 해준다.
+  late var lateVar;
+  late final name;
+  late String name2;
 
-  // 한번 정의된 변수를 수정할 수 없도록 막고 싶을 때
-  final name3 = 'nico'; // JS, TS의 const와 같은 개념
-  // name3 = 'las';
+  late final String name3;
+  // do something, go to api
+  name3 = 'nico';
+  // name3 = 'las'; 여전히 final이기 때문에 한번만 할당 가능
+  // 하지만 late를 사용하면 초기 데이터 없이 변수를 선언할 수 있기 때문에 추후에 할당 가능
 
-  // 더 구체적으로 타입을 지정할 수 있다. (필수는 아님)
-  final String name4 = 'nico';
+  // late는 실수를 방지하는 데 도움이 된다.
+  late final String name4;
+  // print(name4); late 변수에 할당하기 전 접근하면 에러 발생
+  // data fetching 시에 유용하다.
 }
