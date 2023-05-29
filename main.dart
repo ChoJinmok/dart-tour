@@ -1,16 +1,14 @@
 void main() {
-  // dart의 const는 JS, TS의 const와 다르다
-  // JS, TS의 const는 final과 비슷한 개념
-  // dart의 const는 compile-time constant를 만들어준다.
-  const name = 'nico';
-  // name = 'las'; final과 마찬가지로 한번 할당된 값은 변경할 수 없다.
+  String name = "nico"; // 작은 따옴표, 큰 따옴표 둘 다 사용 가능
+  bool alive = true;
+  int age = 10;
+  double pi = 3.14; // 소수점이 있는 숫자
+  // int, double의 형식 정의를 살펴보면 num 타입을 상속받고 있다.
+  num x = 12; // int, double 둘 다 가능, 정수, 소수점 모두일 수도 있는 숫자 => int, double을 주로 사용
 
-  // const의 가장 큰 특징은 컴파일 시점에 값이 결정되어야 한다는 것이다.
-  const API_KEY = '1234567890'; // 절대 바뀌는 않는 값이면서 컴파일 시점에 값을 알 수 있는 경우에 사용
+  // Dart에서는 함수(function)을 포함한 거의 모든 타입은 객체(object)로 이루어져 있다. (타입에 오른쪽 클릭 후 "Go to - type Declaration" 클릭 후 확인 가능)
+  // => Dart가 객체지향 언어라고 할 수 있는 이유
 
-  // 사용자의 휴대폰에서 앱이 실행되면서 정해지는 것들의 경우
-  // const API_KEY = fetchApiKey(); => 컴파일 시점에 값을 알 수 없기 때문에 const 사용 불가
-  // final API_KEY = fetchApiKey(); => 컴파일 시점에 값을 알 수 없기 때문에 final 사용 가능
-
-  // 컴파일 시점(앱을 올리기 전)에 값을 알 수 있는 경우에는 const를 사용하고, 그렇지 않은 경우에는 final을 사용한다.
+  name.isEmpty; // name은 String 타입이므로 String 타입에 정의된 메서드를 사용할 수 있다.
+  age.isOdd; // age는 int 타입이므로 int 타입에 정의된 메서드를 사용할 수 있다.
 }
