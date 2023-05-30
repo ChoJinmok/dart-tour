@@ -1,14 +1,33 @@
 void main() {
-  String name = "nico"; // 작은 따옴표, 큰 따옴표 둘 다 사용 가능
-  bool alive = true;
-  int age = 10;
-  double pi = 3.14; // 소수점이 있는 숫자
-  // int, double의 형식 정의를 살펴보면 num 타입을 상속받고 있다.
-  num x = 12; // int, double 둘 다 가능, 정수, 소수점 모두일 수도 있는 숫자 => int, double을 주로 사용
+  // 리스트 타입
+  var numbers = [1, 2, 3, 4];
+  // 마지막에 쉼표를 추가하면 포맷팅이 아래와 같이 된다.
+  List<int> numbers2 = [
+    1,
+    2,
+    3,
+    4,
+  ];
 
-  // Dart에서는 함수(function)을 포함한 거의 모든 타입은 객체(object)로 이루어져 있다. (타입에 오른쪽 클릭 후 "Go to - type Declaration" 클릭 후 확인 가능)
-  // => Dart가 객체지향 언어라고 할 수 있는 이유
+  // numbers.add('lalala'); // 다른 타입의 값을 추가할 수 없다.
 
-  name.isEmpty; // name은 String 타입이므로 String 타입에 정의된 메서드를 사용할 수 있다.
-  age.isOdd; // age는 int 타입이므로 int 타입에 정의된 메서드를 사용할 수 있다.
+  numbers.first; // 첫 번째 요소
+  numbers.last; // 마지막 요소
+
+  // collection if, collection for
+
+  // collection if로는 조건에 따라 리스트를 만들 수 있다.
+  var giveMeFive = true;
+  var numbers3 = [
+    1,
+    2,
+    3,
+    4,
+    if (giveMeFive) 5,
+  ];
+  // 조건에 따라 리스트에 요소를 추가하는 것과 동일
+  // if (giveMeFive) {
+  //   numbers3.add(5);
+  // }
+  print(numbers3);
 }
