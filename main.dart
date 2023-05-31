@@ -1,33 +1,13 @@
 void main() {
-  // 리스트 타입
-  var numbers = [1, 2, 3, 4];
-  // 마지막에 쉼표를 추가하면 포맷팅이 아래와 같이 된다.
-  List<int> numbers2 = [
-    1,
-    2,
-    3,
-    4,
-  ];
+  // String Interpolation: text에 변수를 포함시키는 방법
+  var name = 'jinmok';
+  var age = 20;
 
-  // numbers.add('lalala'); // 다른 타입의 값을 추가할 수 없다.
-
-  numbers.first; // 첫 번째 요소
-  numbers.last; // 마지막 요소
-
-  // collection if, collection for
-
-  // collection if로는 조건에 따라 리스트를 만들 수 있다.
-  var giveMeFive = true;
-  var numbers3 = [
-    1,
-    2,
-    3,
-    4,
-    if (giveMeFive) 5,
-  ];
-  // 조건에 따라 리스트에 요소를 추가하는 것과 동일
-  // if (giveMeFive) {
-  //   numbers3.add(5);
-  // }
-  print(numbers3);
+  // 작은 따옴표, 큰 따옴표를 상관X
+  // 달러($) 기호 뒤에 변수를 쓰면 변수의 값이 들어간다. (이미 변수가 정의되어 있어야 함)
+  // 계산을 해서 변수를 넣는 경우 중괄호({})로 묶어줘야 함
+  // 달러 기호($), 따옴표(') 등을 쓰는 경우 역슬래시(\, 이스케이프 문자)를 붙여줘야 함
+  var greeting =
+      'Hello everyone, my name is $name. and I\'m ${age + 2} years old';
+  print(greeting);
 }
