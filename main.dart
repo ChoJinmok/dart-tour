@@ -1,15 +1,18 @@
+// 함수의 앞에 void를 붙이면 함수는 반환값이 없다는 것을 의미함
+void sayHello(String name) {
+  // 함수는 인사를 출력하는 side effect만 있고 반환값이 없음
+  print('Hello $name nice to meet you!');
+}
+
+String sayHello2(String name) {
+  return 'Hello $name nice to meet you!';
+}
+
+// fat arrow syntax: 바로 반환값을 반환하는 함수를 만들 때 사용
+String sayHello3(String name) => 'Hello $name nice to meet you!';
+
+num plus(num a, num b) => a + b;
+
 void main() {
-  // Set
-  var numbers = {2, 1, 3, 4};
-  Set<int> numbers2 = {1, 2, 3, 4};
-
-  // Set과 List는 비슷한 개념이지만, Set은 모든 값이 유니크함
-  numbers.add(1);
-  numbers.add(1);
-  numbers.add(1);
-  print(numbers);
-
-  // Set은 sequence(순서)가 있음
-  // JS, TS의 Set과 비슷함
-  // python의 Tuple과 비슷함
+  print(sayHello3('jinmok'));
 }
