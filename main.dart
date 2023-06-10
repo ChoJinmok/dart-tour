@@ -1,27 +1,42 @@
 class Player {
-  // class에서 property를 정의할 때는 타입을 명시해주는 것이 보통
-  // String name = 'jinmok';
-  // property를 변경하지 못하게 하고 싶다면 final 키워드 사용
-  final String name = 'jinmok';
-  int xp = 1500;
+  final String name;
+  int xp;
+  String team;
+  int age;
 
-  // Player가 인사하는 method
+  // Positional parameter
+  // Player(this.name, this.xp, this.team, this.age);
+
+  // Named parameter
+  Player({
+    required this.name,
+    required this.xp,
+    required this.team,
+    required this.age,
+  });
+
   void sayHello() {
-    // Dart의 class에서는 this 키워드를 사용할 필요 없음 (this를 사용할 수도 있음)
-    // this를 붙이지 않기를 권장
-    // 만약 함수안에 동일한 이름의 변수가 있고 Player class의 name property를 사용하고 싶다면 this.name 사용
-    // var name = 'lizzy';
     print('Hi my name is $name');
   }
 }
 
 void main() {
-  // New를 붙일 필요 없음 (사용할 순 있음)
-  var player = Player();
-  // 값을 사용할 수도 있고 변경할 수도 있음
-  print(player.name);
-  // final로 선언된 변수는 변경할 수 없음
-  // player.name = 'lizzy';
-  print(player.name);
+  // 많은 positional parameter을 사용하면 순서를 지켜야해서 가독성이 떨어짐
+  // var player = Player('jinmok', 1500, 'red', 20);
+
+  // Named parameter
+  var player = Player(
+    name: 'jinmok',
+    xp: 1500,
+    team: 'red',
+    age: 20,
+  );
   player.sayHello();
+  var player2 = Player(
+    name: 'lizzy',
+    xp: 2500,
+    team: 'blue',
+    age: 25,
+  );
+  player2.sayHello();
 }
