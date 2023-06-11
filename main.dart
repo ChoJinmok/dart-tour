@@ -1,34 +1,23 @@
 class Player {
+  // 그냥 final로 선언하면 반드시 초기화 해야함 (dart는 값이 없는 걸 좋아하지 않음)
+  // final String name;
+  // late 키워드를 사용하면 나중에 초기화 할 수 있음
+  // late final String name;
+  // late int xp;
+
+  // 축약형에는 late도 필요 없음
   final String name;
-  int xp, age; // 축약형
-  String team;
-  // int age;
+  int xp;
 
-  Player({
-    required this.name,
-    required this.xp,
-    required this.team,
-    required this.age,
-  });
+  // constructor method의 이름은 class 이름과 동일
+  // Player(String name, int xp) {
+  //   this.name = name;
+  //   this.xp = xp;
+  // }
 
-  // named constructor
-  // Player를 초기화 하는 method
-  // 콜론(:)을 사용하면 초기화 하는 방법을 명시할 수 있음 (super syntax)
-  Player.createBluePlayer({
-    required String name,
-    required int age,
-  })  : this.age = age,
-        this.name = name,
-        this.team = 'blue',
-        this.xp = 0;
-
-  Player.createRedPlayer(
-    String name,
-    int age,
-  )   : this.age = age,
-        this.name = name,
-        this.team = 'red',
-        this.xp = 0;
+  // 위에서 타입을 지정해줬는데 constructor에서도 타입을 지정해주는 것이 번거로움
+  // positional parameter이기 때문에 순서가 중요
+  Player(this.name, this.xp);
 
   void sayHello() {
     print('Hi my name is $name');
@@ -36,12 +25,8 @@ class Player {
 }
 
 void main() {
-  var bluePlayer = Player.createBluePlayer(
-    name: 'jinmok',
-    age: 20,
-  );
-  var redPlayer = Player.createRedPlayer(
-    'lizzy',
-    25,
-  );
+  var player = Player('jinmok', 1500);
+  player.sayHello();
+  var player2 = Player('lizzy', 1000);
+  player2.sayHello();
 }
