@@ -1,14 +1,14 @@
 class Player {
-  final String name;
+  String name;
   int xp, age;
   String team;
 
-  // named constructor
-  Player.fromJson(Map<String, dynamic> json)
-      : name = json['name'],
-        xp = json['xp'],
-        age = json['age'],
-        team = json['team'];
+  Player({
+    required this.name,
+    required this.xp,
+    required this.age,
+    required this.team,
+  });
 
   void sayHello() {
     print('Hi my name is $name');
@@ -16,18 +16,54 @@ class Player {
 }
 
 void main() {
-  // API로 부터 여러 Player를 받아오는 경우
+  // var jinmok = Player(
+  //   name: 'jinmok',
+  //   xp: 1500,
+  //   age: 25,
+  //   team: 'red',
+  // );
 
-  // 구조화되지 않은 데이터
-  var apiData = [
-    {'name': 'jinmok', 'xp': 1500, 'age': 25, 'team': 'red'},
-    {'name': 'lizzy', 'xp': 1000, 'age': 24, 'team': 'blue'},
-    {'name': 'john', 'xp': 1000, 'age': 24, 'team': 'blue'},
-  ];
+  // 만약 프로퍼티 값을 변경하고 싶다면 아래와 같이 할 수 있음
+  // jinmok.name = 'lizzy';
+  // jinmok.xp = 1000;
+  // jinmok.age = 24;
+  // jinmok.team = 'blue';
 
-  // Flutter 앱이 많이 사용하는 패턴 (Class화)
-  apiData.forEach((playerJson) {
-    var player = Player.fromJson(playerJson);
-    player.sayHello();
-  });
+  // jinmok을 반복해서 적는 것이 아니라
+  // Cascade operator를 사용해서 한번에 변경 가능
+  // jinmok
+  //   ..name = 'lizzy'
+  //   ..xp = 1000
+  //   ..age = 24
+  //   ..team = 'blue';
+
+  // 아래와 같이 초기화 후 바로 Cascade operator를 사용해서 변경 가능
+  // 두점 중 앞에 있는 점은 jinmok을 가리킴
+  // var jinmok = Player(
+  //   name: 'jinmok',
+  //   xp: 1500,
+  //   age: 25,
+  //   team: 'red',
+  // )
+  //   ..name = 'lizzy'
+  //   ..xp = 1000
+  //   ..age = 24
+  //   ..team = 'blue';
+
+  var jinmok = Player(
+    name: 'jinmok',
+    xp: 1500,
+    age: 25,
+    team: 'red',
+  );
+  var lizzy = jinmok
+    ..name = 'lizzy'
+    ..xp = 1000
+    ..age = 24
+    ..team = 'blue'
+    ..sayHello();
+
+  jinmok.sayHello();
+
+  lizzy.sayHello();
 }
