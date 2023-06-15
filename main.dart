@@ -1,7 +1,24 @@
+// Enum 타입은 개발자의 실수를 줄여주는 역할을 함
+
+// 실제로 Flutter에는 옵션들이 다양한 경우가 있음
+// color, margin, padding, alignment, etc...
+// 이런 경우 실수가 발생하기 쉬움
+// ex. flex -> felx
+
+// enum은 선택의 폭을 좁히는 역할을 함
+// 예를 들어 팀 이름은 red, blue만 있는데 reddd라는 값을 넣으면 오류가 발생함
+// 이럴 때 enum을 사용하면 오류를 줄일 수 있음
+
+enum Team { red, blue } // => 새로운 타입을 만들어줌
+// ("")를 붙여줄 필요 없음
+
+enum XPLevel { beginner, medium, pro }
+
 class Player {
   String name;
-  int xp, age;
-  String team;
+  XPLevel xp;
+  int age;
+  Team team;
 
   Player({
     required this.name,
@@ -16,51 +33,22 @@ class Player {
 }
 
 void main() {
-  // var jinmok = Player(
-  //   name: 'jinmok',
-  //   xp: 1500,
-  //   age: 25,
-  //   team: 'red',
-  // );
-
-  // 만약 프로퍼티 값을 변경하고 싶다면 아래와 같이 할 수 있음
-  // jinmok.name = 'lizzy';
-  // jinmok.xp = 1000;
-  // jinmok.age = 24;
-  // jinmok.team = 'blue';
-
-  // jinmok을 반복해서 적는 것이 아니라
-  // Cascade operator를 사용해서 한번에 변경 가능
-  // jinmok
-  //   ..name = 'lizzy'
-  //   ..xp = 1000
-  //   ..age = 24
-  //   ..team = 'blue';
-
-  // 아래와 같이 초기화 후 바로 Cascade operator를 사용해서 변경 가능
-  // 두점 중 앞에 있는 점은 jinmok을 가리킴
-  // var jinmok = Player(
-  //   name: 'jinmok',
-  //   xp: 1500,
-  //   age: 25,
-  //   team: 'red',
-  // )
-  //   ..name = 'lizzy'
-  //   ..xp = 1000
-  //   ..age = 24
-  //   ..team = 'blue';
-
   var jinmok = Player(
     name: 'jinmok',
-    xp: 1500,
+    // xp: 1500,
+    xp: XPLevel.pro,
     age: 25,
-    team: 'red',
+    // 아래와 같이 오타가 날 수 있음
+    // team: 'redd',
+    team: Team.red,
   );
   var lizzy = jinmok
     ..name = 'lizzy'
-    ..xp = 1000
+    // ..xp = 1000
+    ..xp = XPLevel.beginner
     ..age = 24
-    ..team = 'blue'
+    // ..team = 'blue'
+    ..team = Team.blue
     ..sayHello();
 
   jinmok.sayHello();
